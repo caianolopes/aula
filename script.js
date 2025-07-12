@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- CONFIGURAÇÕES ---
+    // --- CONFIGURAÇÕES FINAIS ---
     // Defina sua senha de acesso aqui
     const SENHA_CORRETA = "truenas_rocks"; // Pode mudar esta senha para o que quiser
 
-    // URL do seu túnel Cloudflare, que aponta para o seu PC com Ollama
-    const OLLAMA_HOST = "https://offset-control-moved-acquired.trycloudflare.com";
+    // URL PERMANENTE do seu túnel Cloudflare para o Ollama
+    const OLLAMA_HOST = "https://ollama.caianolopes.github.io";
 
     // Modelo do Ollama que você baixou e quer usar
     const OLLAMA_MODEL = "llama3:8b"; 
@@ -35,11 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     formSenha.addEventListener('submit', (event) => {
         event.preventDefault();
         if (inputSenha.value === SENHA_CORRETA) {
-            // Se a senha estiver correta, esconde a tela de senha e mostra o app
             telaSenha.classList.add('hidden');
             appContainer.classList.remove('hidden');
         } else {
-            // Se incorreta, mostra a mensagem de erro
             erroSenha.classList.remove('hidden');
             inputSenha.value = '';
             inputSenha.focus();
@@ -55,15 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function gerarPlanoDeAula(materia, assunto) {
-        // Lógica de cache para não sobrecarregar a IA local com pedidos repetidos
         const cacheKey = `plano-aula:${materia}-${assunto}`;
         const cachedResult = localStorage.getItem(cacheKey);
         if (cachedResult) {
             console.log("Resultado encontrado no cache do navegador! Exibindo sem chamar a API.");
-            processarConteudo(cachedResult); // Usa o resultado salvo
+            processarConteudo(cachedResult);
             telaInicial.classList.add('hidden');
             telaPlano.classList.remove('hidden');
-            return; // Encerra a função aqui
+            return;
         }
 
         btnText.classList.add('hidden');
@@ -79,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 Responda APENAS com o conteúdo da atividade, sem introduções ou comentários adicionais.`;
 
         try {
-            // Chamada para a API LOCAL DO OLLAMA através do túnel Cloudflare
             const response = await fetch(`${OLLAMA_HOST}/api/chat`, {
                 method: 'POST',
                 headers: {
@@ -90,7 +86,7 @@ Responda APENAS com o conteúdo da atividade, sem introduções ou comentários 
                     messages: [
                         { role: "user", content: prompt }
                     ],
-                    stream: false // Recebe a resposta completa de uma vez
+                    stream: false
                 }),
             });
 
@@ -100,10 +96,7 @@ Responda APENAS com o conteúdo da atividade, sem introduções ou comentários 
 
             const data = await response.json();
             const apiResponseText = data.message.content;
-
-            // Salva o novo resultado no cache do navegador
             localStorage.setItem(cacheKey, apiResponseText);
-
             processarConteudo(apiResponseText);
             
             telaInicial.classList.add('hidden');
