@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURAÇÕES FINAIS E PERMANENTES ---
     const SENHA_CORRETA = "macaca";
 
-    // URL PERMANENTE criada no painel da Cloudflare
-    const OLLAMA_HOST = "https://ollama-caiano.cloudflareaccess.com";
+    // URL PERMANENTE e definitiva do seu túnel Cloudflare
+    const OLLAMA_HOST = "https://ollama.ollama-caiano.caiano.cloudflareaccess.com";
 
     const OLLAMA_MODEL = "llama3:8b"; 
 
