@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURAÇÕES ---
     // Defina sua senha de acesso aqui
-    const SENHA_CORRETA = "caianolopes"; // Pode mudar esta senha para o que quiser
+    const SENHA_CORRETA = "truenas_rocks"; // Pode mudar esta senha para o que quiser
 
     // URL do seu túnel Cloudflare, que aponta para o seu PC com Ollama
-    const OLLAMA_HOST = "https://outlined-cells-livestock-largest.trycloudflare.com";
+    const OLLAMA_HOST = "https://offset-control-moved-acquired.trycloudflare.com";
 
     // Modelo do Ollama que você baixou e quer usar
     const OLLAMA_MODEL = "llama3:8b"; 
