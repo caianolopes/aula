@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const SENHA_CORRETA = "macaca";
 
     // URL PERMANENTE criada no painel da Cloudflare
-    const OLLAMA_HOST = "https://ollama-caiano.cloudflareaccess.com"; // <-- SUA NOVA URL FIXA
+    const OLLAMA_HOST = "https://ollama-caiano.cloudflareaccess.com";
 
     const OLLAMA_MODEL = "llama3:8b"; 
 
