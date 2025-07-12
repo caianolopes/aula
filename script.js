@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- CONFIGURAÇÕES FINAIS ---
     // Defina sua senha de acesso aqui
-    const SENHA_CORRETA = "truenas_rocks"; // Pode mudar esta senha para o que quiser
+    const SENHA_CORRETA = "macaca"; // Pode mudar esta senha para o que quiser
 
     // URL PERMANENTE do seu túnel Cloudflare para o Ollama
     const OLLAMA_HOST = "https://ollama.caianolopes.github.io";
