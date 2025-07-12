@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Planos de Aula</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div id="tela-inicial">
+            <h1>Gerador de Plano de Aula com IA</h1>
+            <p>Insira a matéria e o assunto para criar uma atividade para o ensino fundamental.</p>
+            <form id="form-gerador">
+                <div class="input-group">
+                    <label for="materia">Matéria:</label>
+                    <input type="text" id="materia" name="materia" placeholder="Ex: Português" required>
+                </div>
+                <div class="input-group">
+                    <label for="assunto">Assunto:</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Ex: Formação de palavras com FL, FR, etc." required>
+                </div>
+                <button type="submit" id="btn-gerar">
+                    <span class="btn-text">Gerar Atividade</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+        </div>
+
+        <div id="tela-plano" class="hidden">
+            <div class="botoes-topo">
+                <button id="btn-voltar">← Criar Nova Atividade</button>
+                <button id="btn-imprimir">🖨️ Imprimir</button>
+            </div>
+            <div class="editor-container">
+                <div id="folha-a4">
+                    <div id="conteudo-gerado">
+                        </div>
+                </div>
+
+                <div id="busca-imagens">
+                    <h2>Busca de Imagens</h2>
+                    <p>Encontre imagens para sua atividade. Copie o <strong>endereço da imagem</strong> e cole no campo correspondente ao clicar nele.</p>
+                    <form id="form-busca-imagens">
+                        <input type="text" id="termo-busca" placeholder="Digite o que deseja buscar...">
+                        <button type="submit">Buscar no Google Imagens</button>
+                    </form>
+                    <div class="tutorial">
+                        <h3>Como adicionar uma imagem:</h3>
+                        <ol>
+                            <li>Busque uma imagem ao lado.</li>
+                            <li>A busca abrirá em uma nova aba.</li>
+                            <li>Clique com o botão direito na imagem desejada e selecione <strong>"Copiar endereço da imagem"</strong>.</li>
+                            <li>Volte para esta aba.</li>
+                            <li>Clique no campo de imagem pontilhado na folha.</li>
+                            <li>Cole (Ctrl+V) o endereço no campo que aparecerá.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Tela 1: Formulário Inicial */
+#tela-inicial {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+#tela-inicial h1 {
+    margin-top: 0;
+    color: #1c1e21;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#btn-gerar {
+    width: 100%;
+}
+
+/* Loader (Animação de Carregamento) */
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tela 2: Editor */
+#tela-plano .botoes-topo {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.editor-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Folha A4 - Lado Esquerdo */
+#folha-a4 {
+    flex-grow: 1;
+    background: white;
+    /* Dimensões A4 */
+    width: 21cm;
+    min-height: 29.7cm;
+    padding: 2cm;
+    margin: 0 auto;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+#conteudo-gerado {
+    font-size: 12pt;
+    line-height: 1.5;
+}
+
+#conteudo-gerado h1, #conteudo-gerado h2, #conteudo-gerado h3 {
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+}
+
+#conteudo-gerado .placeholder-imagem {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin: 20px 0;
+    color: #777;
+    background-color: #fafafa;
+    transition: background-color 0.3s;
+}
+
+#conteudo-gerado .placeholder-imagem:hover {
+    background-color: #f0f0f0;
+    border-color: #aaa;
+}
+
+#conteudo-gerado img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+/* Busca de Imagens - Lado Direito */
+#busca-imagens {
+    width: 350px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 20px;
+}
+
+#busca-imagens h2, #busca-imagens h3 {
+    margin-top: 0;
+}
+
+#busca-imagens input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#busca-imagens button {
+    width: 100%;
+}
+
+#busca-imagens .tutorial {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+#busca-imagens .tutorial ol {
+    padding-left: 20px;
+}
+
+
+/* Estilos de Impressão */
+@media print {
+    body {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+    }
+    #tela-plano .botoes-topo, #busca-imagens {
+        display: none;
+    }
+    #folha-a4 {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+}
