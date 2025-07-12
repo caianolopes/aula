@@ -122,4 +122,45 @@ Responda APENAS com o conteúdo da atividade, sem introduções ou comentários 
     function processarConteudo(texto) {
         let html = texto
             .replace(/\n/g, '<br>')
-            .replace(/
+            .replace(/\[SUGESTÃO DE IMAGEM: (.*?)\]/g, (match, p1) => {
+                return `<div class="placeholder-imagem" data-sugestao="${p1}">
+                            <strong>Clique para adicionar imagem</strong>
+                            <br>
+                            <small>Sugestão: ${p1}</small>
+                        </div>`;
+            });
+        conteudoGerado.innerHTML = html;
+    }
+
+    conteudoGerado.addEventListener('click', (event) => {
+        const placeholder = event.target.closest('.placeholder-imagem');
+        if (placeholder) {
+            const imageUrl = prompt('Cole aqui o endereço (URL) da imagem:', placeholder.dataset.sugestao || '');
+            if (imageUrl) {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = placeholder.dataset.sugestao;
+                placeholder.replaceWith(img);
+            }
+        }
+    });
+
+    btnVoltar.addEventListener('click', () => {
+        telaPlano.classList.add('hidden');
+        telaInicial.classList.remove('hidden');
+        conteudoGerado.innerHTML = '';
+    });
+
+    btnImprimir.addEventListener('click', () => {
+        window.print();
+    });
+
+    formBuscaImagens.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const termo = inputTermoBusca.value;
+        if (termo) {
+            const googleImagesUrl = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(termo)}`;
+            window.open(googleImagesUrl, '_blank');
+        }
+    });
+});
